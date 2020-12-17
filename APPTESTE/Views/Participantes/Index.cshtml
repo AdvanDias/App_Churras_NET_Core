@@ -1,0 +1,48 @@
+﻿@model IEnumerable<APPTESTE.Models.Participante>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="color:#ffffff;">Participantes</h1>
+
+<table class="table col-md-5 offset-md-3 border-dark" style="background:#ffffff; ">
+   
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.V_Com)
+            </th>
+            <th>
+                <a class="btn btn-secondary" style="float:right;" asp-controller="Churrascoes" asp-action="Index">Voltar</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.V_Com)
+                </td>
+                <td style="float:right;">
+                    <a class="btn btn-primary"  asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                    <a class="btn btn-danger"  asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                </td>
+
+            </tr>
+            
+        }
+
+    </tbody>
+</table>
+

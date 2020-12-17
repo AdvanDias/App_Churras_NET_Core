@@ -1,0 +1,41 @@
+﻿@model IEnumerable<APPTESTE.Models.Churrasco>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="color:#ffe04f;">Agenda Churrasco</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Adicionar</a>
+</p>
+
+@foreach (var item in Model) {
+        
+           
+            
+                    <div style="float:left; width:350px" class="form-group ">
+                      
+                            <div class="card m-2 border border-dark" >
+                                <div class="card-body m-2">
+                                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nome)</h5>
+                                    <p class="card-text"> @Html.DisplayFor(modelItem => item.Data)</p>
+                                    <p class="card-text">@Html.DisplayFor(modelItem => item.Observacoes)</p>
+                                    <p class="card-text">
+                                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                                        <a asp-controller="Participantes" asp-action="Index" asp-route-id="@item.Id">Detalhes</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+                                        <br/>
+                                        <br/>
+                                        <a class="nav-link btn btn-primary" asp-area="" asp-controller="Participantes" asp-action="Create">Incluir Participante</a>
+                                    </p>
+                                    <!--<a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                </div>
+                            </div>
+                       
+                    </div>
+
+            
+      
+            }
+
